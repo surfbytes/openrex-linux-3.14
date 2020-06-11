@@ -12,15 +12,15 @@
 
 /dts-v1/;
 
-#include "imx6q.dtsi"
+#include "imx6dl.dtsi"
 #include "imx6qdl-openrex.dtsi"
 
 / {
-	model = "FEDEVEL i.MX6 Quad OpenRex Board";
-	compatible = "fsl,imx6q-openrex", "fsl,imx6q";
+	model = "FEDEVEL i.MX6 SOLO OpenRex Board";
+	compatible = "fsl,imx6s-openrex", "fsl,imx6dl";
 
 	memory {
-		reg = <0x10000000 0x80000000>; /* reg = 0x10000000 (base address) 0x80000000 (size = 2147483648 bits => 2GB) */
+		reg = <0x10000000 0x20000000>; /* reg = 0x10000000 (base address) 0x20000000 (size = 536870912 bits => 512MB) */
 	};
 };
 
@@ -32,27 +32,7 @@
 	status = "disabled";
 };
 
-&mxcfb3 {
-	status = "disabled";
-};
-
-&mxcfb4 {
-	status = "disabled";
-};
-
-&sata {
+&pxp {
 	status = "okay";
 };
 
-&pcie {
-	status = "okay";
-};
-
-
-&ecspi3 {
-	spidev30: spi@3 {
-		compatible = "spidev";
-		reg = <0>;
-		spi-max-frequency = <57600000>;
-	};
-};
